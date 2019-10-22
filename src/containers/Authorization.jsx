@@ -25,18 +25,19 @@ const Authorization = ({ hasToken, setToken }) => {
   };
   const logIn = e => {
     if (login && password) {
+		console.log('zashel')
       const token = Math.floor(Math.random() * 99999999999);
       localStorage.setItem("token", token);
       setToken(token);
     }
   };
   if (localStorage.getItem("token")) {
-    return <Redirect to="/" />;
+    return <Redirect to="/main" />;
   }
   return (
     <AuthorizationComp
-      handleChangeLogin={ChangeLogin}
-      handleChangePassword={ChangePassword}
+	ChangeLogin={ChangeLogin}
+	ChangePassword={ChangePassword}
       logIn={logIn}
     ></AuthorizationComp>
   );
