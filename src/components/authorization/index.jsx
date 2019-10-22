@@ -1,22 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Authorization.scss";
-import classNames from 'classnames'
-export default class Authorization extends Component {
+import classNames from "classnames";
 
-	componentDidMount(){
-		console.log(localStorage.getItem('teest'))
-	}
-	
-  render() {
-    return (
-      <div className={classNames('authorization')}>
-        <form>
-          <label>Введите имя пользователя и пароль</label>
-          <input onChange={this.props.handleChangeLogin} placeholder={"Имя"} />
-          <input onChange={this.props.handleChangePassword} placeholder={"Пароль"} />
-		  <button onClick={this.props.logIn}>Вход</button>
-        </form>
-      </div>
-    );
-  }
-}
+const Authorization = props => {
+  const {ChangeLogin,ChangePassword,logIn } = props;
+  return (
+    <div className={classNames("authorization")}>
+      <form>
+        <label>Введите имя пользователя и пароль</label>
+        <input onChange={ChangeLogin} placeholder={"Имя"} />
+        <input
+          onChange={ChangePassword}
+          placeholder={"Пароль"}
+        />
+        <button onClick={logIn}>Вход</button>
+      </form>
+    </div>
+  );
+};
+export default Authorization

@@ -15,11 +15,11 @@ const Authorization = ({ hasToken, setToken }) => {
 	  }
   },[hasToken]);
 
-  const handleChangeLogin = e => {
+  const ChangeLogin = e => {
     const value = e.currentTarget.value;
     setLogin(value);
   };
-  const handleChangePassword = e => {
+  const ChangePassword = e => {
     const value = e.currentTarget.value;
     setPassword(value);
   };
@@ -35,8 +35,8 @@ const Authorization = ({ hasToken, setToken }) => {
   }
   return (
     <AuthorizationComp
-      handleChangeLogin={handleChangeLogin}
-      handleChangePassword={handleChangePassword}
+      handleChangeLogin={ChangeLogin}
+      handleChangePassword={ChangePassword}
       logIn={logIn}
     ></AuthorizationComp>
   );

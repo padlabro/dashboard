@@ -6,7 +6,7 @@ import history from '../history';
 
 const Header = ({ users,setActiveUser }) => {
   const [isHidden, setHidden] = useState(true);
-  const toggleClick = event => {
+  const openModal = event => {
 	event.preventDefault();
     if ((isHidden)&&(event.target.name==='bell')) {
 	  setHidden(false);
@@ -15,14 +15,14 @@ const Header = ({ users,setActiveUser }) => {
 		setHidden(true);
 	}
   };
-  const userClick = event =>{
+  const selectUser = event =>{
 	  event.preventDefault();
 	  setActiveUser(Number(event.target.id))
 	  setHidden(true);
 	  history.push('/main')
   }
   return (
-    <HeaderComp toggleClick={toggleClick} userss={users} isHidden={isHidden} userClick={userClick}/>
+    <HeaderComp openModal={openModal} usersList={users} isHidden={isHidden} selectUser={selectUser}/>
   );
 };
 
