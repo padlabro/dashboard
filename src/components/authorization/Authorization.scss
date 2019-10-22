@@ -1,0 +1,30 @@
+.authorization{
+	margin: 0 auto;
+	margin-top: 100px;
+	border: 2px solid black;
+	width: 300px;
+	height: 230px;
+	box-sizing: border-box;
+	padding: 30px;
+	& input{
+		margin: 0 auto;
+		display: block;
+		margin-bottom: 20px;
+	}
+	& label{
+		margin-bottom: 20px;
+		display: block;
+		text-align: center;
+	}
+	& button{
+		width: 120px;
+		display: block;
+		margin: 0 auto;
+		background: transparent;
+  		user-select: none;
+  		border-radius: 3px;
+  		border: 2px solid black;
+		color: black;
+		padding: 5px;
+	}
+}
