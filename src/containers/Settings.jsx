@@ -57,7 +57,6 @@ const Settings = ({ addUser, users, id, editUser, deleteUser }) => {
   };
   const addUserr = event => {
 	event.preventDefault();
-	console.log(data.username);
     if ((!data.username)) {
       setError(true);
     } else {
@@ -67,7 +66,6 @@ const Settings = ({ addUser, users, id, editUser, deleteUser }) => {
     }
   };
   const handleInput = event => {
-    console.log(typeof data);
     const { value } = event.target;
     const { name } = event.currentTarget;
     setData(() => ({

@@ -25,7 +25,6 @@ const Authorization = ({ hasToken, setToken }) => {
   };
   const logIn = e => {
     if (login && password) {
-		console.log('zashel')
       const token = Math.floor(Math.random() * 99999999999);
       localStorage.setItem("token", token);
       setToken(token);

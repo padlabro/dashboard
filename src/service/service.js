@@ -1,10 +1,8 @@
 import { cardActions } from "../actions";
 import store from "../store";
-//ZLBxK9rEfHwJf9K0rmseNr2fS2gS2HJW
 const Service = {
   getData: name => {
     store.dispatch(cardActions.requestData(true));
-    console.log(Service.switchFetch);
     Service.switchFetch(name)
       .then(response => {
         if (!response.ok) {
