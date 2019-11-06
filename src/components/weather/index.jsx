@@ -1,14 +1,30 @@
-import React from 'react'
-import './Weather.scss'
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Weather.scss';
 
+const Weather = props => {
+  const { data } = props;
+  return (
+    <div className="weather">
+      <p>
+        {data.city_name}
+        {data.country_code}
+      </p>
+      <p>{data.temp}</p>
+      <p>{data.weather.description}</p>
+    </div>
+  );
+};
 
-const Weather = (props)=>{
-	const {data} = props;
-	return (<div className="weather">	
-		<p >{data.item.data[0].timezone}{data.item.data[0].county_code}</p>
-		<p >{data.item.data[0].temp}</p>
-		<p >{data.item.data[0].weather.description}</p>	
-	</div>)
-}
+Weather.propTypes = {
+  data: PropTypes.shape({
+    city_name: PropTypes.string,
+    country_code: PropTypes.string,
+    temp: PropTypes.number,
+    weather: PropTypes.shape({
+      description: PropTypes.string
+    })
+  })
+};
 
-export default Weather
+export default Weather;

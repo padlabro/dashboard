@@ -1,7 +1,7 @@
 const Actions = {
-  openedCard: name => (dispatch) => {
+  openedCard: name => dispatch => {
     dispatch({
-      type: "OPEN_CARD",
+      type: 'OPEN_CARD',
       payload: name
     });
   }

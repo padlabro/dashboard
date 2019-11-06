@@ -1,15 +1,33 @@
-import React from 'react'
-import './Musicbrainz.scss'
+import React from 'react';
+import './Musicbrainz.scss';
+import PropTypes from 'prop-types';
 
+const Musicbrainz = props => {
+  const { data } = props;
+  return (
+    <div className="music">
+      <p className="music__title">{data.name}</p>
+      <p className="music__from">{data.area['sort-name']}</p>
+      <p className="music__description">{data.disambiguation}</p>
+      <div className="music__start">
+        since
+        {data['life-span'].begin} to {data['life-span'].end}
+      </div>
+    </div>
+  );
+};
 
-const Musicbrainz = (props)=>{
-	const {data} = props;
-	return (<div className="music">	
-		<p className="music__title">{data.item.name}</p>
-		<p className="music__from">{data.item.area['sort-name']}</p>
-		<p className="music__description">{data.item.disambiguation}</p>
-		<div className="music__start">since{data.item['life-span'].begin} to {data.item['life-span'].end}</div>
-	</div>)
-}
+export default Musicbrainz;
 
-export default Musicbrainz
+Musicbrainz.propTypes = {
+  data: PropTypes.shape({
+    name: PropTypes.string,
+    area: PropTypes.object,
+    disambiguation: PropTypes.string,
+    'life-span': PropTypes.object
+  })
+};
+
+Musicbrainz.defaultProps = {
+  data: []
+};

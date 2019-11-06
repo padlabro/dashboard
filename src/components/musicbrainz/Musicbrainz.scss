@@ -1,23 +1,27 @@
-.music{
+.music {
 	width: 300px;
 	height: 280px;
-	color:palevioletred;
+	color: palevioletred;
 	background-color: #fff;
-	margin-top:30px;
-	&__title{
-		font-size:24pt;
+	margin-top: 30px;
+
+	&__title {
+		font-size: 24pt;
 		text-align: center;
 	}
-	&__from{
-		font-size:20pt;
+
+	&__from {
+		font-size: 20pt;
 		text-align: center;
 	}
-	&__description{
-		font-size:16pt;
+
+	&__description {
+		font-size: 16pt;
 		text-align: center;
 	}
-	&__start{
-		font-size:16pt;
+
+	&__start {
+		font-size: 16pt;
 		text-align: center;
 	}
-}	
+}

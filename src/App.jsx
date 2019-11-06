@@ -1,9 +1,10 @@
-import React from "react";
-import { Authorization } from "./containers";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { Settings, Main, Card, Header } from "./containers";
-import { connect } from "react-redux";
-import "./styles.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Authorization, Settings, Main, Card, Header } from './containers';
+import './styles.scss';
+
 const App = props => (
   <Switch>
     <Route exact path="/login" component={Authorization} />
@@ -12,7 +13,7 @@ const App = props => (
       render={() =>
         props.isAuth ? (
           <>
-            <Header></Header>
+            <Header />
             <div className="main__content">
               <div className="container">
                 <Route exact path="/settings" component={Settings} />
@@ -28,4 +29,9 @@ const App = props => (
     />
   </Switch>
 );
+
+App.propTypes = {
+  isAuth: PropTypes.bool
+};
+
 export default connect(({ auth }) => ({ isAuth: auth.isAuth }))(App);

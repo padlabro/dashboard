@@ -1,6 +1,9 @@
-import { combineReducers } from "redux";
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable no-param-reassign */
+import { combineReducers } from 'redux';
 
-const reducers = ["auth","settings","main","card"];
+const reducers = ['auth', 'settings', 'main', 'card'];
 
 export default combineReducers(
   reducers.reduce((initial, name) => {

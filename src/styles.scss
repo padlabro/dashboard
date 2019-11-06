@@ -32,39 +32,48 @@ a {
 	padding: 0 15px;
 	margin: 0 auto;
 }
+
 @media only screen and (max-width: 500px) {
-	.header__navigation{
-		font-size:16pt !important
+	.header__navigation {
+		font-size: 16pt !important
 	}
-	.main>div{
-		margin-right:0px !important;
+
+	.main>div {
+		margin-right: 0px !important;
 	}
-	.main>div{
-		margin-right:0px !important;
+
+	.main>div {
+		margin-right: 0px !important;
 	}
-	.settings__user{
+
+	.settings__user {
 		margin-right: 0px !important;
 		margin-bottom: 30px;
 	}
-	.settings__addUser{
+
+	.settings__addUser {
 		height: 500px;
 		margin-bottom: 30px;
 	}
-	.settings__addUser>.form__textarea textarea{
+
+	.settings__addUser>.form__textarea textarea {
 		width: 250px;
 	}
 }
+
 @media only screen and (max-width: 750px) {
-	body>#root{
-		height:auto;
+	body>#root {
+		height: auto;
 	}
 }
+
 @media only screen and (max-width: 770px) {
-	.settings__user{
+	.settings__user {
 		margin-right: 0px !important;
 		margin-bottom: 30px;
 	}
-	.settings__addUser{
+
+	.settings__addUser {
 		height: 500px;
 		margin-bottom: 30px;
 	}

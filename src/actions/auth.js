@@ -1,10 +1,9 @@
 const Actions = {
-	setToken: token => (dispatch) => {
-	  dispatch({
-		type: "SET_TOKEN",
-		payload: true
-	  });
-	}
-  };
-  export default Actions;
-  
+  setToken: () => dispatch => {
+    dispatch({
+      type: 'SET_TOKEN',
+      payload: true
+    });
+  }
+};
+export default Actions;
