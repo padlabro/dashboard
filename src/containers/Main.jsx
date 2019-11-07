@@ -10,7 +10,7 @@ const Main = ({ apis, reload, openedCard }) => {
 
   useEffect(() => {
     const rand = Math.floor(Math.random() * 4);
-    const arr = apis.filter(i => i !== rand);
+    const arr = apis.filter((item, i) => i !== rand);
     setRandomApis(arr);
   }, [apis, reload]);
 
