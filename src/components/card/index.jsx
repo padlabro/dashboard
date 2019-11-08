@@ -4,8 +4,17 @@ import PropTypes from 'prop-types';
 import { Behance, Musicbrainz, Youtube, Weather } from '..';
 
 const CardComp = props => {
-  const { data } = props;
-
+  const { data, loading, error } = props;
+  if (loading) {
+    return (
+      <div className="card">
+        <img src="../../../public/spinner.svg" />
+      </div>
+    );
+  }
+  if (error) {
+    return <div>error</div>;
+  }
   switch (data.name) {
     case 'youtube':
       return (
@@ -38,6 +47,8 @@ const CardComp = props => {
 };
 
 CardComp.propTypes = {
+  loading: PropTypes.bool,
+  error: PropTypes.bool,
   data: PropTypes.shape({
     name: PropTypes.string,
     item: PropTypes.object

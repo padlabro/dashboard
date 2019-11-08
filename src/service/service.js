@@ -19,7 +19,6 @@ const Service = {
         if (!response.ok) {
           throw Error(response.statusText);
         }
-        store.dispatch(cardActions.requestData(false));
         return response;
       })
       .then(response => response.json())

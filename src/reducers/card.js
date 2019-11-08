@@ -1,7 +1,8 @@
 const initialState = {
   nameOfCard: '',
+  data: {},
   loading: false,
-  data: {}
+  error: false
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -14,12 +15,20 @@ export default (state = initialState, { type, payload }) => {
     case 'REQUESTED_DATA':
       return {
         ...state,
+        error: false,
         loading: payload
       };
     case 'REQUESTED_DATA_SUCCESS':
       return {
         ...state,
-        data: payload
+        data: payload,
+        loading: false
+      };
+    case 'REQUESTED_DATA_ERROR':
+      return {
+        ...state,
+        error: true,
+        loading: false
       };
     default:
       return state;
