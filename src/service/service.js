@@ -1,8 +1,7 @@
 import { cardActions } from '../actions';
-import store from '../store';
 
 const Service = {
-  getData: name => {
+  getData: name => dispatch => {
     const apis = {
       musicbrainz:
         'http://musicbrainz.org/ws/2/artist/5b11f4ce-a62d-471e-81fc-a69a8278c7da?inc=aliases&fmt=json',
@@ -13,7 +12,7 @@ const Service = {
       behance:
         'https://cors-anywhere.herokuapp.com/https://api.behance.net/v2/users/arvindworld?client_id=ZLBxK9rEfHwJf9K0rmseNr2fS2gS2HJW'
     };
-    store.dispatch(cardActions.requestData(true));
+    dispatch(cardActions.requestData(true));
     fetch(apis[name])
       .then(response => {
         if (!response.ok) {
@@ -22,8 +21,8 @@ const Service = {
         return response;
       })
       .then(response => response.json())
-      .then(item => store.dispatch(cardActions.requestDataSuccess({ item, name })))
-      .catch(() => store.dispatch(cardActions.requestDataError(true)));
+      .then(item => dispatch(cardActions.requestDataSuccess({ item, name })))
+      .catch(() => dispatch(cardActions.requestDataError(true)));
   }
 };
 

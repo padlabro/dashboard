@@ -9,7 +9,7 @@ const Youtube = props => {
     let itemsList = [];
     if (videos.items) {
       itemsList = videos.items.map(item => (
-        <div className="card__video" key={item.id.videoId}>
+        <div className="card__video" key={item.snippet.title}>
           <iframe
             title={item.snippet.title}
             width="300"

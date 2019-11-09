@@ -2,22 +2,20 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { CardComp } from '../components';
-import Service from '../service/service';
+import service from '../service/service';
 
-const Card = ({ cardName, data, loading, error }) => {
+const Card = ({ cardName, data, loading, error, getData }) => {
   useEffect(() => {
     if (cardName && cardName !== data.name) {
-      getApiData(cardName);
+      getData(cardName);
     }
-  }, [cardName, data.name]);
+  }, [cardName, data.name, getData]);
 
-  const getApiData = async name => {
-    Service.getData(name);
-  };
   return <CardComp data={data} loading={loading} error={error} />;
 };
 
 Card.propTypes = {
+  getData: PropTypes.func,
   cardName: PropTypes.string,
   loading: PropTypes.bool,
   error: PropTypes.bool,
@@ -33,5 +31,5 @@ export default connect(
     loading: card.loading,
     error: card.error
   }),
-  Service
+  service
 )(Card);
