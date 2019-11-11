@@ -60,6 +60,13 @@ const Settings = ({ addUser, users, userId, editUser, deleteUser }) => {
     }
   };
   const onNewUser = () => {
+    setUserData({
+      name: '',
+      surname: '',
+      username: '',
+      email: '',
+      about: ''
+    });
     if (!userData.username) {
       setError(true);
     } else {

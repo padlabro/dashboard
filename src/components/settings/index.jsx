@@ -43,7 +43,7 @@ const SettingsComp = props => {
             <></>
           )}
         </div>
-        <form className={cn('settings__addUser', { hidden: isHidden })}>
+        <form className={cn('settings__add-user', { hidden: isHidden })}>
           {isUserEditing ? <p>Редактировать пользователя</p> : <p>Добавить пользователя</p>}
           <UserForm
             error={error}
@@ -58,7 +58,7 @@ const SettingsComp = props => {
               <button type="button" onClick={exitFromEdit} className="settings__exit">
                 Exit
               </button>
-              <button type="button" onClick={saveUserChanges} className="settings__add">
+              <button type="button" onClick={saveUserChanges} className="settings__edit">
                 Save
               </button>
             </>

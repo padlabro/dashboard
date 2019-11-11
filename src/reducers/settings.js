@@ -23,7 +23,7 @@ export default (state = initialState, { type, payload }) => {
     case 'DELETE_USER':
       return {
         ...state,
-        activeUser: false,
+        activeUser: null,
         users: state.users.filter((item, i) => i !== state.activeUser)
       };
     default:

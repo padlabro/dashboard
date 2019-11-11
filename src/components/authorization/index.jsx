@@ -8,9 +8,9 @@ const Authorization = props => {
   return (
     <div className={classNames('authorization')}>
       <form>
-        <label>Введите имя пользователя и пароль</label>
-        <input onChange={ChangeLogin} placeholder="Имя" />
-        <input onChange={ChangePassword} placeholder="Пароль" />
+        <label className="authorization__label">Введите имя пользователя и пароль</label>
+        <input className="authorization__input" onChange={ChangeLogin} placeholder="Имя" />
+        <input className="authorization__input" onChange={ChangePassword} placeholder="Пароль" />
         <button type="button" onClick={logIn}>
           Вход
         </button>

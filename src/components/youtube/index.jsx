@@ -1,5 +1,5 @@
 import React from 'react';
-import './Youtube.scss';
+// import './Youtube.scss';
 import PropTypes from 'prop-types';
 
 const Youtube = props => {
