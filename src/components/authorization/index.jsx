@@ -11,7 +11,7 @@ const Authorization = props => {
         <label className="authorization__label">Введите имя пользователя и пароль</label>
         <input className="authorization__input" onChange={ChangeLogin} placeholder="Имя" />
         <input className="authorization__input" onChange={ChangePassword} placeholder="Пароль" />
-        <button type="button" onClick={logIn}>
+        <button type="button" className="authorization__button" onClick={logIn}>
           Вход
         </button>
       </form>

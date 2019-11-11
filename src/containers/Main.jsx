@@ -24,9 +24,13 @@ const Main = ({ apis, reload, openedCard }) => {
 };
 
 Main.propTypes = {
-  apis: PropTypes.array,
+  apis: PropTypes.array.isRequired,
   reload: PropTypes.number,
-  openedCard: PropTypes.func
+  openedCard: PropTypes.func.isRequired
+};
+
+Main.defaultProps = {
+  reload: null
 };
 
 export default connect(

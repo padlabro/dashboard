@@ -1,3 +1,37 @@
+.user-add {
+	&__input-field {
+		display: block;
+		margin: 15px;
+
+		input {
+			width: 250px;
+		}
+
+		label {
+			width: 60px;
+			margin-right: 15px;
+			display: inline-block;
+		}
+	}
+
+	&__textarea {
+		margin: 15px;
+		position: relative;
+
+		label {
+			top: -10px;
+			position: absolute;
+		}
+
+		textarea {
+			margin-top: 15px;
+			height: 100px;
+			width: 325px;
+			resize: none;
+		}
+	}
+}
+
 .about {
 	overflow-y: auto;
 }

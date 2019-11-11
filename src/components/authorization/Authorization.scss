@@ -7,19 +7,19 @@
 	box-sizing: border-box;
 	padding: 30px;
 
-	& input {
+	&__input {
 		margin: 0 auto;
 		display: block;
 		margin-bottom: 20px;
 	}
 
-	& label {
+	&__label {
 		margin-bottom: 20px;
 		display: block;
 		text-align: center;
 	}
 
-	& button {
+	&__button {
 		width: 120px;
 		display: block;
 		margin: 0 auto;

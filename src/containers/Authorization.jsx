@@ -37,8 +37,8 @@ const Authorization = ({ hasToken, setToken }) => {
 };
 
 Authorization.propTypes = {
-  hasToken: PropTypes.bool,
-  setToken: PropTypes.func
+  hasToken: PropTypes.bool.isRequired,
+  setToken: PropTypes.func.isRequired
 };
 
 export default connect(

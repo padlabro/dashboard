@@ -8,7 +8,7 @@ const HeaderComp = props => {
   const { usersList, selectUser, openModal, isHidden } = props;
   const renderItems = users => {
     const userList = users.map((item, i) => (
-      <div onClick={selectUser} id={i} key={item.username}>
+      <div onClick={selectUser} className="notification__item" id={i} key={item.username}>
         {item.username}
       </div>
     ));
@@ -19,9 +19,9 @@ const HeaderComp = props => {
     <header className="header">
       <div className="container">
         <div className="header__content">
-          <a onClick={openModal} href="/">
+          <a className="notification" onClick={openModal} href="/">
             <img
-              className={cn({
+              className={cn('notification__img', {
                 select: !isHidden
               })}
               src="../../../public/icons/bell.svg"
@@ -30,7 +30,7 @@ const HeaderComp = props => {
               alt="bell"
             />
             <div
-              className={cn('header__notifications', {
+              className={cn('notification__body', {
                 hidden: isHidden
               })}
               name="bell"

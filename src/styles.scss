@@ -1,14 +1,13 @@
-body {
+* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
 
-	.main__content {
-		background-color: #ecf1f5;
-		box-sizing: border-box;
-		overflow: auto;
-		height: calc(100vh - 132px);
-	}
+.main-content {
+	background-color: #ecf1f5;
+	overflow: auto;
+	height: calc(100vh - 132px);
 }
 
 a {
@@ -29,33 +28,29 @@ a {
 @media only screen and (max-width: 500px) {
 	.settings__user {
 		width: 300px;
+
+		div {
+			width: 270px;
+			margin: 15 0;
+		}
 	}
 
-	.settings__user div {
-		width: 270px;
-		margin: 15 0;
-	}
-
-	.settings__add-user {
+	.user-add {
 		height: auto;
 		min-height: 400px;
 		width: 300px;
-	}
 
-	.settings__add-user div {
-		margin: 15px 0px;
-	}
+		&__input-field input {
+			width: 270px;
+		}
 
-	.settings__add-user input {
-		width: 270px;
+		&__textarea textarea {
+			width: 270px;
+		}
 	}
 
 	.header__navigation {
 		font-size: 16pt !important
-	}
-
-	.settings__add-user>.form__textarea textarea {
-		width: 270px;
 	}
 }
 

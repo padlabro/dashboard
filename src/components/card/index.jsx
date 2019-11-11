@@ -47,8 +47,8 @@ const CardComp = props => {
 };
 
 CardComp.propTypes = {
-  loading: PropTypes.bool,
-  error: PropTypes.bool,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
   data: PropTypes.shape({
     name: PropTypes.string,
     item: PropTypes.object

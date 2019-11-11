@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 const MainComp = props => {
   const { randomApis, openCard } = props;
   const renderItems = item => (
-    <div id={item.name} key={item.name} className="main__api" onClick={openCard}>
-      <div className="main__api-imgwrapper">
-        <img src={item.icon} className="main__api-img" alt="icon" />
+    <div id={item.name} key={item.name} className="api" onClick={openCard}>
+      <div className="api__logo">
+        <img src={item.icon} alt="icon" />
       </div>
-      <p className="main__api-title">{item.name}</p>
-      <p className="main__api-description">{item.descr}</p>
+      <p className="api__title">{item.name}</p>
+      <p className="api__description">{item.descr}</p>
     </div>
   );
 

@@ -1,25 +1,14 @@
-header {
+.header {
 	background-color: #2b3245;
 
-	a {
-		margin-right: 300px;
-		position: relative;
-
-		img {
-			height: 30px;
-			width: 30px;
-		}
-	}
-
-	.header__content {
+	&__content {
 		height: 70px;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
-
 	}
 
-	.header__navigation {
+	&__navigation {
 		font-size: 20pt;
 		height: 60px;
 		background-color: #fff;
@@ -44,25 +33,40 @@ header {
 			color: #fc4971;
 			border-bottom: 2px solid #fc4971;
 		}
+
+		.select {
+			box-shadow: 0 0 10px rgba(255, 255, 255, 0.8)
+		}
+
 	}
 }
 
-.header__notifications {
-	color: #fc4971;
-	transition: all 0.1s linear;
-	width: 300px;
-	height: 400px;
-	background-color: white;
-	border: 2px solid #869ca7;
-	border-top: none;
-	position: absolute;
-	top: 50px;
-	padding: 10px;
-	overflow: auto;
-	z-index: 5;
-	cursor: default;
+.notification {
+	margin-right: 300px;
+	position: relative;
 
-	div {
+	&__img {
+		height: 30px;
+		width: 30px;
+	}
+
+	&__body {
+		color: #fc4971;
+		transition: all 0.1s linear;
+		width: 300px;
+		height: 400px;
+		background-color: white;
+		border: 2px solid #869ca7;
+		border-top: none;
+		position: absolute;
+		top: 50px;
+		padding: 10px;
+		overflow: auto;
+		z-index: 5;
+		cursor: default;
+	}
+
+	&__item {
 		color: white;
 		box-sizing: border-box;
 		padding: 14px;
@@ -71,10 +75,6 @@ header {
 		background-color: #869ca7;
 		margin-bottom: 10px;
 	}
-}
-
-.select {
-	box-shadow: 0 0 10px rgba(255, 255, 255, 0.8)
 }
 
 @media only screen and (min-width: 900px) {
@@ -90,7 +90,7 @@ header {
 		left: 10px;
 	}
 
-	.header__notifications {
+	.notification__body {
 		width: 250px;
 		height: 300px;
 	}

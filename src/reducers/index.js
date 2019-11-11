@@ -1,13 +1,7 @@
-/* eslint-disable global-require */
-/* eslint-disable import/no-dynamic-require */
-/* eslint-disable no-param-reassign */
 import { combineReducers } from 'redux';
+import auth from './auth';
+import settings from './settings';
+import main from './main';
+import card from './card';
 
-const reducers = ['auth', 'settings', 'main', 'card'];
-
-export default combineReducers(
-  reducers.reduce((initial, name) => {
-    initial[name] = require(`./${name}`).default;
-    return initial;
-  }, {})
-);
+export default combineReducers({ auth, settings, main, card });

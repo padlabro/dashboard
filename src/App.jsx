@@ -14,7 +14,7 @@ const App = props => (
         props.isAuth ? (
           <>
             <Header />
-            <div className="main__content">
+            <div className="main-content">
               <div className="container">
                 <Route exact path="/settings" component={Settings} />
                 <Route exact path="/main" component={Main} />
@@ -31,7 +31,7 @@ const App = props => (
 );
 
 App.propTypes = {
-  isAuth: PropTypes.bool
+  isAuth: PropTypes.bool.isRequired
 };
 
 export default connect(({ auth }) => ({ isAuth: auth.isAuth }))(App);

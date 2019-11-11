@@ -1,114 +1,122 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { SettingsComp } from '../components';
 import { settingsActions } from '../actions';
 
-const Settings = ({ addUser, users, userId, editUser, deleteUser }) => {
-  const [userData, setUserData] = useState({});
-  const [isHidden, setHidden] = useState(true);
-  const [isUserEditing, setUserEditing] = useState(false);
-  const [error, setError] = useState(false);
+class Settings extends Component {
+  state = {
+    userData: {},
+    isHidden: true,
+    isUserEditing: false,
+    error: false
+  };
 
-  const deleteUserData = event => {
+  deleteUserData = event => {
+    const { deleteUser } = this.props;
     event.preventDefault();
     deleteUser();
-    setUserEditing(false);
-    setUserData({
-      name: '',
-      surname: '',
-      username: '',
-      email: '',
-      about: ''
+    this.setState({
+      isUserEditing: false,
+      userData: { name: '', surname: '', username: '', email: '', about: '' }
     });
   };
 
-  const editUserData = event => {
+  editUserData = event => {
+    const { users, userId } = this.props;
     event.preventDefault();
-    setUserData(users[userId]);
-    setHidden(false);
-    setUserEditing(true);
+    this.setState({
+      userData: users[userId],
+      isHidden: false,
+      isUserEditing: true
+    });
   };
-  const saveUserChanges = event => {
+
+  saveUserChanges = event => {
+    const { userData } = this.state;
+    const { editUser } = this.props;
     event.preventDefault();
     if (userData.username === '') {
-      setError(true);
+      this.setState({ error: true });
     } else {
-      setError(false);
       editUser(userData);
+      this.setState({ error: false });
     }
   };
 
-  const exitFromEdit = event => {
+  exitFromEdit = event => {
     event.preventDefault();
-    setUserEditing(false);
-    setUserData({
-      name: '',
-      surname: '',
-      username: '',
-      email: '',
-      about: ''
+    this.setState({
+      isUserEditing: false,
+      userData: { name: '', surname: '', username: '', email: '', about: '' }
     });
   };
 
-  const openAddForm = event => {
+  openAddForm = event => {
+    const { isHidden } = this.state;
     event.preventDefault();
     if (isHidden) {
-      setHidden(false);
+      this.setState({ isHidden: false });
     } else {
-      setHidden(true);
+      this.setState({ isHidden: true });
     }
   };
-  const onNewUser = () => {
-    setUserData({
-      name: '',
-      surname: '',
-      username: '',
-      email: '',
-      about: ''
-    });
+
+  onNewUser = () => {
+    const { userData } = this.state;
+    const { addUser } = this.props;
     if (!userData.username) {
-      setError(true);
+      this.setState({ error: true });
     } else {
+      this.setState({
+        userData: { name: '', surname: '', username: '', email: '', about: '' },
+        error: false
+      });
       addUser(userData);
-      setError(false);
     }
   };
-  const handleInput = event => {
+
+  handleInput = event => {
     const { value } = event.target;
     const { name } = event.currentTarget;
-    setUserData(() => ({
-      ...userData,
-      [name]: value
+    this.setState(prevState => ({
+      userData: { ...prevState.userData, [name]: value }
     }));
   };
 
-  return (
-    <SettingsComp
-      onNewUser={onNewUser}
-      handleInput={handleInput}
-      isHidden={isHidden}
-      openAddForm={openAddForm}
-      userFormHidden={userId}
-      users={users}
-      userId={userId}
-      isUserEditing={isUserEditing}
-      editUserData={editUserData}
-      userData={userData}
-      exitFromEdit={exitFromEdit}
-      saveUserChanges={saveUserChanges}
-      deleteUser={deleteUserData}
-      error={error}
-    />
-  );
-};
+  render() {
+    const { users, userId } = this.props;
+    const { isHidden, isUserEditing, userData, error } = this.state;
+    return (
+      <SettingsComp
+        onNewUser={this.onNewUser}
+        handleInput={this.handleInput}
+        isHidden={isHidden}
+        openAddForm={this.openAddForm}
+        userFormHidden={userId}
+        users={users}
+        userId={userId}
+        isUserEditing={isUserEditing}
+        editUserData={this.editUserData}
+        userData={userData}
+        exitFromEdit={this.exitFromEdit}
+        saveUserChanges={this.saveUserChanges}
+        deleteUser={this.deleteUserData}
+        error={error}
+      />
+    );
+  }
+}
 
 Settings.propTypes = {
-  addUser: PropTypes.func,
-  users: PropTypes.array,
+  addUser: PropTypes.func.isRequired,
+  users: PropTypes.array.isRequired,
   userId: PropTypes.number,
-  editUser: PropTypes.func,
-  deleteUser: PropTypes.func
+  editUser: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired
+};
+Settings.defaultProps = {
+  userId: null
 };
 
 export default connect(

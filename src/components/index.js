@@ -8,3 +8,4 @@ export { default as Weather } from './weather';
 export { default as Youtube } from './youtube';
 export { default as Musicbrainz } from './musicbrainz';
 export { default as Behance } from './behance';
+export { default as UserData } from './userdata';

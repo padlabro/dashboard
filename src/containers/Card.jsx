@@ -15,13 +15,13 @@ const Card = ({ cardName, data, loading, error, getData }) => {
 };
 
 Card.propTypes = {
-  getData: PropTypes.func,
-  cardName: PropTypes.string,
-  loading: PropTypes.bool,
-  error: PropTypes.bool,
+  getData: PropTypes.func.isRequired,
+  cardName: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
   data: PropTypes.shape({
     name: PropTypes.string
-  })
+  }).isRequired
 };
 
 export default connect(

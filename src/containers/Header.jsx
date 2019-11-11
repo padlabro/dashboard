@@ -52,8 +52,8 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  users: PropTypes.array,
-  setActiveUser: PropTypes.func
+  users: PropTypes.array.isRequired,
+  setActiveUser: PropTypes.func.isRequired
 };
 
 export default connect(

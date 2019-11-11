@@ -24,7 +24,7 @@ Weather.propTypes = {
     weather: PropTypes.shape({
       description: PropTypes.string
     })
-  })
+  }).isRequired
 };
 
 export default Weather;

@@ -2,7 +2,7 @@ import React from 'react';
 import './Settings.scss';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import { UserForm } from '..';
+import { UserData, UserForm } from '..';
 
 const SettingsComp = props => {
   const {
@@ -22,20 +22,19 @@ const SettingsComp = props => {
   } = props;
   return (
     <div className="settings">
-      <button type="button" onClick={openAddForm} className="settings__button">
+      <button type="button" onClick={openAddForm} className="btn btn-add">
         <img src="../../../public/icons/plus.svg" alt="plus" />
         Add
       </button>
       <div className="settings__inner">
-        <div className={cn('settings__user', { hidden: userId === null })}>
+        <div className={cn('settings__user user-edit', { hidden: userId === null })}>
           {userId !== null ? (
             <>
-              <UserForm userData={userData} users={users} userId={userId} />
-              <button type="button" className="btn-right" onClick={editUserData}>
-                <img src="../../../public/icons/edit.svg" alt="edit" />
+              <UserData userData={userData} users={users} userId={userId} />
+              <button type="button" className="btn btn-edit" onClick={editUserData}>
                 Edit
               </button>
-              <button type="button" className="btn-left" onClick={deleteUser}>
+              <button type="button" className="btn btn-delete" onClick={deleteUser}>
                 Delete
               </button>
             </>
@@ -43,8 +42,12 @@ const SettingsComp = props => {
             <></>
           )}
         </div>
-        <form className={cn('settings__add-user', { hidden: isHidden })}>
-          {isUserEditing ? <p>Редактировать пользователя</p> : <p>Добавить пользователя</p>}
+        <form className={cn('settings__user user-add', { hidden: isHidden })}>
+          {isUserEditing ? (
+            <p className="user-add__title">Редактировать пользователя</p>
+          ) : (
+            <p className="user-add__title">Добавить пользователя</p>
+          )}
           <UserForm
             error={error}
             userData={userData}
@@ -55,15 +58,15 @@ const SettingsComp = props => {
           />
           {isUserEditing ? (
             <>
-              <button type="button" onClick={exitFromEdit} className="settings__exit">
+              <button type="button" onClick={exitFromEdit} className="btn btn-exit">
                 Exit
               </button>
-              <button type="button" onClick={saveUserChanges} className="settings__edit">
+              <button type="button" onClick={saveUserChanges} className="btn btn-save">
                 Save
               </button>
             </>
           ) : (
-            <button type="button" onClick={onNewUser} className="settings__add">
+            <button type="button" onClick={onNewUser} className="btn btn-user-add">
               Add user
             </button>
           )}
@@ -74,19 +77,23 @@ const SettingsComp = props => {
 };
 
 SettingsComp.propTypes = {
-  deleteUser: PropTypes.func,
-  openAddForm: PropTypes.func,
-  editUserData: PropTypes.func,
-  exitFromEdit: PropTypes.func,
-  saveUserChanges: PropTypes.func,
-  onNewUser: PropTypes.func,
-  handleInput: PropTypes.func,
-  isHidden: PropTypes.bool,
-  isUserEditing: PropTypes.bool,
-  users: PropTypes.array,
+  deleteUser: PropTypes.func.isRequired,
+  openAddForm: PropTypes.func.isRequired,
+  editUserData: PropTypes.func.isRequired,
+  exitFromEdit: PropTypes.func.isRequired,
+  saveUserChanges: PropTypes.func.isRequired,
+  onNewUser: PropTypes.func.isRequired,
+  handleInput: PropTypes.func.isRequired,
+  isHidden: PropTypes.bool.isRequired,
+  isUserEditing: PropTypes.bool.isRequired,
+  users: PropTypes.array.isRequired,
   userId: PropTypes.number,
-  error: PropTypes.bool,
-  userData: PropTypes.object
+  error: PropTypes.bool.isRequired,
+  userData: PropTypes.object.isRequired
+};
+
+SettingsComp.defaultProps = {
+  userId: null
 };
 
 export default SettingsComp;
