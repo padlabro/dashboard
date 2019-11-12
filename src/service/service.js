@@ -8,7 +8,7 @@ const Service = {
       metaweather:
         'https://api.weatherbit.io/v2.0/current?city=Krasnoyarsk&key=cb40d9e789b148bc8893be4f96ac64a3',
       youtube:
-        'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCX3w3jB05SHLbGjZPR0PM6g&key=AIzaSyAOYG1Ai4mZy6L-ifZgQ8bzS87vA6v3JdA&maxResults=6',
+        'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCX3w3jB05SHLbGjZPR0PM6g&key=AIzaSyAOYG1Ai4mZy6L-ifZgQ8bzS87vA6v3JdA&maxResults=6&order=date',
       behance:
         'https://cors-anywhere.herokuapp.com/https://api.behance.net/v2/users/arvindworld?client_id=ZLBxK9rEfHwJf9K0rmseNr2fS2gS2HJW'
     };
